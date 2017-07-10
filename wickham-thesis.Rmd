@@ -1,0 +1,105 @@
+---
+output: 
+  pdf_document:
+    keep_tex: yes
+    fig_caption: yes
+    number_sections: yes
+    citation_package: natbib
+    template: C:/Users/meglarse/Desktop/wickham-thesis/doc-setup/svm-latex-ms.tex
+title: Thesis Title
+subtitle: Thesis Subtitle
+author: 
+- name: Victoria Wickham
+  affiliation: Major and Department 
+- name: Dr. Megan L. Larsen
+  affiliation: Water Sciences Laboratory, University of Nebraska-Lincoln
+abstract: "Some really good stuff here with 1-2 sentences from the INTRO, RESULTS, and CONCLUSIONS. This section should be no longer than 300 words."
+keywords: "harmful algal blooms, frequency, intensity, Nebraska lakes"
+geometry: margin=0.75in
+fontsize: 11pt
+fontfamily: mathpazo
+bibliography: C:/Users/meglarse/Desktop/wickham-thesis/doc-setup/wickham-thesis-bib.bib
+biblio-style: apsr
+csl: C:/Users/meglarse/Desktop/wickham-thesis/doc-setup/environmental-science-and-technology.csl
+---
+
+<Information in these brackets are used for annotating the RMarkdown file. They will not appear in the final version of the PDF document>
+
+<Setup the global options for the R chunks in your document>
+```{r setup, include=FALSE}
+
+setwd("C:/Users/meglarse/Desktop/wickham-thesis/")
+
+# Install packages for the document
+
+## install.packages("ggplot2")
+require(ggplot2)
+
+# Package options
+
+```
+
+<Setup the front matter for your document>
+\clearpage
+\tableofcontents <creates a table of contents for your document>
+\newpage
+\listoftables <creates a list of all tables>
+\newpage
+\listoffigures <creates a list of all figures>
+\newpage
+
+<Add the text for each of your sections. Check out the [RMarkdown cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) and [Markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#lists) for more information about text formatting.>
+
+#Introduction
+
+We can create citations like this: 
+
+  - To suppress the author's name: @smith2017a had some really great things to say.
+  - Or to include the full citation: One of his other articles completely contradicted the first [@smith2017b]
+  
+<To create a formatted citation, check out this website: http://truben.no/latex/bibtex/)>
+
+# Methods
+## Study system and data collection
+Describe the lakes and hwo the data was collected
+
+## Data sources
+
+## Analyses and calculations
+### Frequency
+
+### Intensity
+
+## Statistics
+
+# Results
+<Data cleanup>
+<Calculations>
+<Data Reduction>
+
+## Summarize result 1 in a single sentence.
+The frequency of algal blooms across the state of Nebraska increased by X\% between 2005 - 2015 (\autoref{fig1}).
+
+<Figure 1>
+```{r fig1, fig.cap="A descriptive title about the frequency. \\label{fig1}", echo = FALSE}
+dat <- data.frame(seq(1,10,0.5), seq(1,10,0.5))
+ggplot(data = dat, aes(x = dat[,1], y = dat[,2])) +
+  geom_point(size = 2, color = "red") +
+  xlab("Axis 1") +
+  ylab("Axis 2") +
+  theme_bw()
+
+```
+
+## Summarize result 2 in a single sentence.
+Some great text about this!
+
+<Figure 2>
+
+```{r fig2, fig.cap="A descriptive title about the intensity."}
+```
+
+# Conclusions
+
+# References
+
